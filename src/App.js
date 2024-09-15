@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LineChart from "./components/LineChart";
+import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar
+        title="Neo Asteroids"
+        navItem1="Home"
+        navItem2="FAQs"
+        navItem3="Contact us"
+        navItem3Field1="About us"
+        navItem3Field2="Career"
+        navItem3Field3="Enquiry"
+        navItem3Field4="Learning Links"
+        navBtn1="Search"
+      ></NavBar>
+      
+      <div className="container my-3">
+      <SideBar></SideBar>
+      </div>
+      
+      <div className="container">
+        <LineChart></LineChart>
+      </div>
+    </>
   );
 }
 
