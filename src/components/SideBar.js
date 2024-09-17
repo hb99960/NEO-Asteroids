@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 
-export default function SideBar(props) {
+export default function SideBar({onDataChange}) {
 
   const [startDate, setStartDate] = useState("");  
   const [endDate, setEndDate] = useState("");
@@ -10,20 +10,31 @@ export default function SideBar(props) {
     console.log("Date Button is clicked!!");
     // Prepare the data to send
     const formData = new FormData();
-    formData.append("startDate", startDate);
-    formData.append("endDate", endDate);
+    formData.append("start_date", startDate);
+    formData.append("end_date", endDate);
+
+    const data = {
+        start_date: startDate,
+        end_date: endDate
+    }
 
     // Make a POST request to index.php
-    const response = await fetch("http://localhost/batraphp/index.php", {
+    const response = await fetch("http://localhost/asteroidMVC/public/asteroids/getAsteroidData", {
       method: "POST",
-      body: formData,
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
 
     // Handle the response
-    console.log("Response from php", response);
+    // console.log("Response from php", response);
     const result = await response.json(); // Assuming index.php sends back a response
     console.log("Formatted JSON Response : ", JSON.stringify(result, null, 2)); // Display the result (for testing purposes)
-  };
+    // onDataChange(JSON.stringify(result, null, 2))
+    onDataChange(result);
+  
+};
 
   const handleStartDateChange = (e) => {
     const selectedStartDate = new Date(e.target.value);

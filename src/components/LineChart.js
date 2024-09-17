@@ -4,24 +4,25 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 export default class LineChart extends Component {
   render() {
+    // const {labels, labelsData } = this.props;
+    // const { dates, numAsteroids, totalAsteroids, maxVelocityAsteroid, closestAsteroidDistance } = this.props;
+    const { dates, numAsteroids, totalAsteroid, maxVelocityAsteroid, maxVelocity, closestAsteroid, closestAsteroidDistance, averageDiameter } = this.props;
+    console.log("In Line Chart dates : ",dates);
+    console.log("In Line Chart numAsteroids : ",numAsteroids);
+    console.log("In Line Chart totalAsteroids : ",totalAsteroid);
+    console.log("In Line Chart maxVelocityAsteroid : ",maxVelocityAsteroid);
+    console.log("In Line Chart closestAsteroidDistance : ",closestAsteroidDistance);
+    console.log("In Line Chart averageDiameter : ",averageDiameter);
     return (
       <div>
-        Hello world from LineChart Class
+        Asteroid Data
         <Line
           data={{
-            labels: [
-              "01/03/2024",
-              "02/03/2024",
-              "03/03/2024",
-              "04/03/2024",
-              "05/03/2024",
-              "06/03/2024",
-              "07/03/2024",
-            ],
+            labels: dates,
             datasets: [
               {
                 label: "Asteroids Stats",
-                data: [65, 59, 60, 81, 96, 55, 40],
+                data: numAsteroids,
                 fill: false,
                 borderColor: "rgb(75, 192, 192)",
                 tension: 0.1,
@@ -29,26 +30,26 @@ export default class LineChart extends Component {
             ],
           }}
         ></Line>
-        <ol class="list-group list-group-numbered">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Fastest Asteroid</div>
-              Asteroid no. 1809
+        <ol className="list-group list-group-numbered">
+          <li className="list-group-item d-flex justify-content-between align-items-start">
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">Fastest Asteroid</div>
             </div>
-            
+            {maxVelocityAsteroid} {maxVelocity} km/s
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Closest Asteroid</div>
-              Asteroid no. 1534
+          <li className="list-group-item d-flex justify-content-between align-items-start">
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">Closest Asteroid</div>
+              
             </div>
+            {closestAsteroid}{closestAsteroidDistance} km
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Average Size of Asteroids in (km)</div>
-              189 km in diameter
+          <li className="list-group-item d-flex justify-content-between align-items-start">
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">Average Size of Asteroids in (km)</div>
             </div>
-            <span class="badge text-bg-primary rounded-pill">180</span>
+            {averageDiameter}
+            <span className="badge text-bg-primary rounded-pill">{totalAsteroid}</span>
           </li>
         </ol>
       </div>
