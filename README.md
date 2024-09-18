@@ -2,6 +2,10 @@
 Locate asteroids in the Near earth orbit (NEO)
 ![image](https://github.com/user-attachments/assets/a63dc7df-2d6b-4e80-91db-2baef3a874bd)
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/hb99960/NEO-Asteroids)
+
+
+
 
 ## Problem Statement
 Show the number of asteroids passing near earth each day for the given date range as well as find the nearest asteroid and the fastest asteroid.
