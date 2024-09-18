@@ -12,7 +12,6 @@ function App() {
 
     const sortedData = newData.dates.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    // processing here
     console.log("Data in handle data change : ", newData);
     const dates = sortedData.map(item => item.date);
     const numAsteroids = sortedData.map(item => item.num_asteroids);
@@ -22,14 +21,8 @@ function App() {
     const closestAsteroid = newData.closest_asteroid.name;
     const closestAsteroidDistance = newData.closest_asteroid.distance;
     const averageDiameter = newData.average_diameter;
-
-    // console.log("Total asteroids :", totalAsteroid);
-    // // Set the processed data
-    // // setData({ dates, numAsteroids, totalAsteroid, maxVelocityAsteroid, closestAsteroidDistance });
-    // // setData(newData);
-    setData({dates, numAsteroids,totalAsteroid, maxVelocityAsteroid, maxVelocity, closestAsteroid, closestAsteroidDistance, averageDiameter});
+    setData({ dates, numAsteroids, totalAsteroid, maxVelocityAsteroid, maxVelocity, closestAsteroid, closestAsteroidDistance, averageDiameter });
   }
-  
 
   return (
     <>
@@ -44,21 +37,21 @@ function App() {
         navItem3Field4="Learning Links"
         navBtn1="Search"
       ></NavBar>
-      
-      <div className="container my-3">
-      <SideBar onDataChange={handleDataChange}/>
 
-      <div className="container">
-        <LineChart  
-          dates={data.dates}
-          numAsteroids={data.numAsteroids}
-          totalAsteroid={data.totalAsteroid}
-          maxVelocityAsteroid={data.maxVelocityAsteroid}
-          maxVelocity={data.maxVelocity}
-          closestAsteroid={data.closestAsteroid}
-          closestAsteroidDistance={data.closestAsteroidDistance}
-          averageDiameter={data.averageDiameter}></LineChart>
-      </div>
+      <div className="container my-3">
+        <SideBar onDataChange={handleDataChange} />
+
+        <div className="container">
+          <LineChart
+            dates={data.dates}
+            numAsteroids={data.numAsteroids}
+            totalAsteroid={data.totalAsteroid}
+            maxVelocityAsteroid={data.maxVelocityAsteroid}
+            maxVelocity={data.maxVelocity}
+            closestAsteroid={data.closestAsteroid}
+            closestAsteroidDistance={data.closestAsteroidDistance}
+            averageDiameter={data.averageDiameter}></LineChart>
+        </div>
       </div>
     </>
   );

@@ -4,15 +4,8 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 export default class LineChart extends Component {
   render() {
-    // const {labels, labelsData } = this.props;
-    // const { dates, numAsteroids, totalAsteroids, maxVelocityAsteroid, closestAsteroidDistance } = this.props;
     const { dates, numAsteroids, totalAsteroid, maxVelocityAsteroid, maxVelocity, closestAsteroid, closestAsteroidDistance, averageDiameter } = this.props;
-    console.log("In Line Chart dates : ",dates);
-    console.log("In Line Chart numAsteroids : ",numAsteroids);
-    console.log("In Line Chart totalAsteroids : ",totalAsteroid);
-    console.log("In Line Chart maxVelocityAsteroid : ",maxVelocityAsteroid);
-    console.log("In Line Chart closestAsteroidDistance : ",closestAsteroidDistance);
-    console.log("In Line Chart averageDiameter : ",averageDiameter);
+
     return (
       <div style={{ width: "100%", height: "400px" }}>
         Asteroid Data
@@ -29,7 +22,8 @@ export default class LineChart extends Component {
               },
             ],
           }}
-        ></Line>
+        >
+        </Line>
         <ol className="list-group list-group-numbered">
           <li className="list-group-item d-flex justify-content-between align-items-start">
             <div className="ms-2 me-auto">
@@ -40,7 +34,7 @@ export default class LineChart extends Component {
           <li className="list-group-item d-flex justify-content-between align-items-start">
             <div className="ms-2 me-auto">
               <div className="fw-bold">Closest Asteroid</div>
-              
+
             </div>
             {closestAsteroid}{closestAsteroidDistance} km
           </li>

@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap";
 
 export default function SideBar({ onDataChange }) {
 
-  
+
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -15,16 +15,16 @@ export default function SideBar({ onDataChange }) {
 
     const start = new Date(startDate);
     const end = new Date(endDate);
-    const dateDiff = (end - start) / (1000 * 60 * 60 * 24); // Difference in days
+    const dateDiff = (end - start) / (1000 * 60 * 60 * 24);
 
     if (dateDiff > 7) {
-      setShowModal(true); // Show modal if date range is more than 7 days
+      setShowModal(true);
       return;
     }
 
-    
-    console.log("Date Button is clicked!!");
-    // Prepare the data to send
+
+
+
     const formData = new FormData();
     formData.append("start_date", startDate);
     formData.append("end_date", endDate);
@@ -44,17 +44,16 @@ export default function SideBar({ onDataChange }) {
         }
       });
 
-      // Handle the response
-      // console.log("Response from php", response);
-      console.log("Endpoint :");
-      const result = await response.json(); // Assuming index.php sends back a response
-      console.log("Formatted JSON Response : ", JSON.stringify(result, null, 2)); // Display the result (for testing purposes)
-      // onDataChange(JSON.stringify(result, null, 2))
+
+
+      const result = await response.json();
+
+
       onDataChange(result);
     } catch (error) {
-      console.error("Error fetching asteroid data:", error);
+
     } finally {
-      
+
     }
 
   };
@@ -62,14 +61,14 @@ export default function SideBar({ onDataChange }) {
   const handleStartDateChange = (e) => {
     const selectedStartDate = new Date(e.target.value);
     const formattedStartDate = selectedStartDate.toISOString().slice(0, 10);
-    console.log(formattedStartDate);
+
     setStartDate(formattedStartDate);
   }
 
   const handleEndDateChange = (e) => {
     const selectedEndDate = new Date(e.target.value);
     const formattedEndDate = selectedEndDate.toISOString().slice(0, 10);
-    console.log(formattedEndDate)
+
     setEndDate(formattedEndDate);
   }
 
@@ -118,7 +117,7 @@ export default function SideBar({ onDataChange }) {
         </Modal>
       )}
 
-     
+
     </div>
   );
 }
