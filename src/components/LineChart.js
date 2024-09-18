@@ -14,7 +14,7 @@ export default class LineChart extends Component {
     console.log("In Line Chart closestAsteroidDistance : ",closestAsteroidDistance);
     console.log("In Line Chart averageDiameter : ",averageDiameter);
     return (
-      <div>
+      <div style={{ width: "100%", height: "400px" }}>
         Asteroid Data
         <Line
           data={{

@@ -1,0 +1,33 @@
+name: API Proxy
+
+on: [push]
+
+jobs:
+  proxy-api:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Run API Proxy Server
+      run: |
+        const express = require('express');
+        const cors = require('cors');
+        const fetch = require('node-fetch');
+        const app = express();
+
+        app.use(cors());
+
+        app.get('/proxy', async (req, res) => {
+          const apiUrl = 'http://52.66.253.68/asteroidMVC/public/asteroids';
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          res.json(data);
+        });
+
+        app.listen(3000, () => {
+          console.log('Proxy running on port 3000');
+        });
