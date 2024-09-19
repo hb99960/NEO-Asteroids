@@ -8,7 +8,7 @@
 
 
 # Problem Statement
-Show the number of asteroids passing near earth each day for the given date range as well as find the nearest asteroid and the fastest asteroid.
+"Why track asteroids? With space exploration booming, understanding near-Earth objects is more crucial than ever. This ReactJS web app leverages NASA's NeoWs API to provide real-time asteroid data, offering insightful statistics and trends through captivating, interactive charts. Whether you're a space enthusiast or a data geek, this app makes asteroid tracking both engaging and visually stunning
 
 # Neo-Asteroids-Server
 This project is a web application that allows users to view the statistics of Near Earth Objects (NEO) by fetching data from NASA’s NeoWs API. Users can input a date range and view the number of asteroids passing near Earth on each day within that range. The app also displays additional information such as the fastest asteroid, the closest asteroid, and the average size of the asteroids.
